@@ -14,7 +14,7 @@
     --blue: #1A4FA0;
     --purple: #7B2FBE;
     --dark: #0D0D1A;
-    --cream: #FFF8EE;
+    --cream: #9edfff;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); overflow-x:hidden; }
@@ -122,6 +122,21 @@
   .ph-dark { background:var(--dark); }
   .ph-dark h2, .ph-dark .sec-title { color:white; }
   .ph-dark .lead { color:rgba(255,255,255,.8); margin:0 auto; }
+  .image-hero {
+    position:relative; background:var(--dark); width:100%;
+    display:flex; justify-content:center; align-items:center;
+    padding:0; overflow:hidden; text-align:center;
+  }
+  .image-hero img { width:100%; height:auto; display:block; margin:0 auto; }
+  .image-hero::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.55));
+  }
+  .image-hero-text {
+    position:absolute; z-index:1; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:min(760px,calc(100% - 3rem)); color:white;
+  }
+  .image-hero-text .lead { color:rgba(255,255,255,.88); margin:0 auto; }
 
   /* CARDS */
   .grid3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px; margin-top:36px; }
@@ -283,8 +298,8 @@
   <div class="nav-brand" onclick="show('home')">Walking Art 5K</div>
   <ul class="nav-links">
     <li><a onclick="show('home')" id="n-home" class="active">Home</a></li>
+    <li><a onclick="show('costumes')" id="n-costumes">5K</a></li>
     <li><a onclick="show('festival')" id="n-festival">Festival</a></li>
-    <li><a onclick="show('costumes')" id="n-costumes">Costumes</a></li>
     <li><a onclick="show('benches')" id="n-benches">Leopold Benches</a></li>
     <li><a onclick="show('route')" id="n-route">Route Map</a></li>
     <li><a onclick="show('otocast')" id="n-otocast">Otocast App</a></li>
@@ -296,7 +311,7 @@
 <!-- ===== HOME ===== -->
 <div class="page active" id="page-home">
   <div style="background:var(--dark);width:100%;display:flex;justify-content:center;align-items:center;padding:0;overflow:hidden">
-    <img src="5K_Flier_1_.png" alt="Walking Art 5K Festival Flier — Michigan City Public Art Committee, Saturday October 10 2026, Millennium Plaza Washington Park" style="width:100%;height:auto;display:block;margin:0 auto">
+    <img src="HomePageHeader.png" alt="Walking Art 5K Festival header" style="width:100%;height:auto;display:block;margin:0 auto">
   </div>
   <div class="stripe"></div>
 
@@ -378,7 +393,7 @@
       <h3>Register Today!</h3>
       <p>Early Bird: <strong style="color:var(--yellow)">$30</strong> (ends July 4th) &nbsp;·&nbsp; Regular: <strong style="color:var(--yellow)">$40</strong> (ends Oct. 1st) &nbsp;·&nbsp; Late/Same Day: <strong style="color:var(--yellow)">$50</strong><br>
       Proceeds support art scholarships for Michigan City children, public murals, and creative projects throughout the city.</p>
-      <a href="http://www.EMichiganCity.com/WalkingArt5K" class="btn btn-yellow">Register Online</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScNriJ4SzRPkQ5e93RykLEQloefWOAOI5Jb0T1qTQRHyaWQBQ/viewform" target="_blank" rel="noopener" class="btn btn-yellow">Register Online</a>
       <p style="margin-top:14px;font-size:.85rem;color:rgba(255,255,255,.55)">Or visit the Parks Dept. help desk at Michigan City City Hall</p>
     </div>
   </div>
@@ -387,10 +402,13 @@
 
 <!-- ===== FESTIVAL ===== -->
 <div class="page" id="page-festival">
-  <div class="ph ph-dark" style="background:linear-gradient(135deg,#0D0D1A,#1a1a3a,#0D0D1A)">
-    <span class="tag tag-or">The Celebration</span>
-    <h2 class="sec-title" style="color:white;font-size:clamp(2.2rem,6vw,4.5rem)">The <span style="color:var(--yellow)">Festival</span></h2>
-    <p class="lead" style="color:rgba(255,255,255,.8);margin:0 auto">An outdoor arts market, live music venue, and community party — at the beautiful Millennium Plaza, Washington Park, right on Lake Michigan.</p>
+  <div class="image-hero">
+    <img src="Header Festival.png" alt="Walking Art 5K Festival header">
+    <div class="image-hero-text">
+      <span class="tag tag-or">The Celebration</span>
+      <h2 class="sec-title" style="color:white;font-size:clamp(2.2rem,6vw,4.5rem)">The <span style="color:var(--yellow)">Festival</span></h2>
+      <p class="lead">An outdoor arts market, live music venue, and community party — at the beautiful Millennium Plaza, Washington Park, right on Lake Michigan.</p>
+    </div>
   </div>
   <div class="stripe"></div>
   <div class="sec">
@@ -445,15 +463,23 @@
   <div class="cbar">Questions? <a href="mailto:contact@risingphxgallery.com">contact@risingphxgallery.com</a> &nbsp;|&nbsp; <a href="tel:4802162583">(480) 216-2583</a></div>
 </div>
 
-<!-- ===== COSTUMES ===== -->
+<!-- ===== 5K ===== -->
 <div class="page" id="page-costumes">
-  <div class="ph ph-dark" style="background:linear-gradient(135deg,#2D0050,#7B2FBE,#FF2D6B)">
-    <span class="tag tag-ye">Costume Encouraged!</span>
-    <h2 class="sec-title" style="color:white;font-size:clamp(2.2rem,6vw,4.5rem)">Wear the <span style="color:var(--yellow)">Art</span></h2>
-    <p class="lead" style="color:rgba(255,255,255,.85);margin:0 auto">The Walking Art 5K celebrates the idea that YOU can become a living, breathing work of art. Costumes are enthusiastically encouraged for all participants!</p>
+  <div class="image-hero">
+    <img src="Walking art Header.png" alt="Walking Art 5K header">
+    <div class="image-hero-text">
+      <span class="tag tag-ye">Costume Encouraged!</span>
+      <h2 class="sec-title" style="color:white;font-size:clamp(2.2rem,6vw,4.5rem)">Wear the <span style="color:var(--yellow)">Art</span></h2>
+      <p class="lead">The Walking Art 5K celebrates the idea that YOU can become a living, breathing work of art. Costumes are enthusiastically encouraged for all participants!</p>
+    </div>
   </div>
   <div class="stripe"></div>
   <div class="sec">
+    <div class="cta cta-dk" style="background:linear-gradient(135deg,#7B2FBE,#FF2D6B);margin-top:0">
+      <h3>Ready to Walk as Art?</h3>
+      <p>Register now and join hundreds of creative Michiganders in the most colorful walk of the year. Costumes are encouraged but never required!</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScNriJ4SzRPkQ5e93RykLEQloefWOAOI5Jb0T1qTQRHyaWQBQ/viewform?usp=sharing&amp;ouid=114541752354883928609" target="_blank" rel="noopener" class="btn btn-yellow">Register Now</a>
+    </div>
     <span class="tag tag-pi">Win Prizes!</span>
     <h2 class="sec-title">The Costume <span>Contest</span></h2>
     <p class="lead">One of the most beloved parts of Walking Art 5K is the costume contest! Judges will be looking for the most creative, artistic, and inspired costumes. Costume judging begins at 1:10 PM, winners announced at 1:45 PM.</p>
@@ -488,21 +514,19 @@
       <h3>👀 Costume Safety Reminder</h3>
       <p>Please ensure your costume is safe for walking outdoors. Costumes should not block your vision, create tripping hazards, or obstruct other participants. Comfortable footwear is strongly recommended — you'll be walking 5 kilometers!</p>
     </div>
-    <div class="cta cta-dk" style="background:linear-gradient(135deg,#7B2FBE,#FF2D6B)">
-      <h3>Ready to Walk as Art?</h3>
-      <p>Register now and join hundreds of creative Michiganders in the most colorful walk of the year. Costumes are encouraged but never required!</p>
-      <a href="http://www.EMichiganCity.com/WalkingArt5K" class="btn btn-yellow">Register Now</a>
-    </div>
   </div>
   <div class="cbar">Questions? <a href="mailto:contact@risingphxgallery.com">contact@risingphxgallery.com</a></div>
 </div>
 
 <!-- ===== BENCHES ===== -->
 <div class="page" id="page-benches">
-  <div class="ph ph-dark" style="background:linear-gradient(135deg,#1a3a1a,#2d6a2d,#1a3a1a)">
-    <span class="tag tag-ye">Silent Auction &amp; Community Choice</span>
-    <h2 class="sec-title" style="color:white;font-size:clamp(2rem,5vw,4rem)">The Leopold <span style="color:var(--yellow)">Bench Project</span></h2>
-    <p class="lead" style="color:rgba(255,255,255,.85);margin:0 auto">19 one-of-a-kind works of art, painted by local artists, ready to become a permanent piece of your home or community.</p>
+  <div class="image-hero">
+    <img src="bench header.png" alt="Leopold Bench Project header">
+    <div class="image-hero-text">
+      <span class="tag tag-ye">Silent Auction &amp; Community Choice</span>
+      <h2 class="sec-title" style="color:white;font-size:clamp(2rem,5vw,4rem)">The Leopold <span style="color:var(--yellow)">Bench Project</span></h2>
+      <p class="lead">19 one-of-a-kind works of art, painted by local artists, ready to become a permanent piece of your home or community.</p>
+    </div>
   </div>
   <div class="stripe"></div>
   <div class="sec">
@@ -751,51 +775,10 @@
     <div style="margin-top:52px">
       <span class="tag tag-te">Apply Now</span>
       <h2 class="sec-title">Vendor <span>Application</span></h2>
-      <p class="lead">Complete the form below or email us to apply for a vendor space. Applications close September 15, 2026. Spaces are limited!</p>
+      <p class="lead">Complete the vendor application through our Google Form. Applications close September 15, 2026. Spaces are limited!</p>
       <div class="vform">
-        <div class="form-row">
-          <div class="fg"><label>Contact Name *</label><input type="text" placeholder="Your full name"></div>
-          <div class="fg"><label>Business / Organization Name</label><input type="text" placeholder="Business name (if applicable)"></div>
-        </div>
-        <div class="form-row">
-          <div class="fg"><label>Email Address *</label><input type="email" placeholder="your@email.com"></div>
-          <div class="fg"><label>Phone Number *</label><input type="tel" placeholder="(555) 555-5555"></div>
-        </div>
-        <div class="fg"><label>Mailing Address</label><input type="text" placeholder="Street address, City, State, ZIP"></div>
-        <div class="form-row">
-          <div class="fg"><label>Vendor Category</label>
-            <select>
-              <option>Select a category...</option>
-              <option>Local Artist / Fine Art</option>
-              <option>Artisan / Handcrafted Goods</option>
-              <option>Jewelry / Accessories</option>
-              <option>Ceramics / Pottery</option>
-              <option>Textiles / Fiber Arts</option>
-              <option>Photography / Prints</option>
-              <option>Community Organization / Nonprofit</option>
-              <option>Art Education / Children's Activities</option>
-              <option>Other Creative Vendor</option>
-            </select>
-          </div>
-          <div class="fg"><label>Space Required</label>
-            <select>
-              <option>Standard 10'×10' space ($50)</option>
-              <option>Need additional space — please contact me</option>
-            </select>
-          </div>
-        </div>
-        <div class="fg"><label>Description of Work, Products, or Organization *</label><textarea placeholder="Tell us about what you'll be selling or presenting at the festival..."></textarea></div>
-        <div class="fg"><label>Do you have a canopy with proper 25 lb. weights per leg?</label>
-          <select>
-            <option>Yes — with proper 25 lb. weights per leg</option>
-            <option>Yes — I need to acquire proper weights</option>
-            <option>No canopy</option>
-          </select>
-        </div>
-        <div class="fg"><label>Special requests or questions?</label><textarea placeholder="Space location preferences, questions, etc. (Note: space location requests are considered but not guaranteed)"></textarea></div>
-        <div style="text-align:center;margin-top:6px">
-          <button class="btn btn-orange" onclick="alert('Thank you for your interest!\n\nPlease email your completed application to:\ncontact@risingphxgallery.com\n\nApplication Deadline: August 15, 2026\n\nWe look forward to having you join us!')" style="font-size:.98rem;padding:15px 38px">Submit Application</button>
-          <p style="margin-top:11px;color:#888;font-size:.83rem">Or email directly to <a href="mailto:contact@risingphxgallery.com" style="color:var(--orange)">contact@risingphxgallery.com</a></p>
+        <div style="text-align:center">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJZiFScw6YiPUYBzyHA7_hrqoocSH8harpToZGoMvNePAJug/viewform" target="_blank" rel="noopener" class="btn btn-orange" style="font-size:.98rem;padding:15px 38px">Open Vendor Application</a>
         </div>
       </div>
     </div>
@@ -981,11 +964,11 @@
   <p>Saturday, October 10, 2026 · Millennium Plaza, Washington Park · Michigan City, Indiana</p>
   <div class="flinks">
     <a onclick="show('home')">Home</a>
+    <a onclick="show('costumes')">5K</a>
     <a onclick="show('festival')">Festival</a>
-    <a onclick="show('costumes')">Costume Contest</a>
     <a onclick="show('benches')">Leopold Benches</a>
     <a onclick="show('route')">Route Map</a>
-    <a onclick="show('otocast')">Otocast</a>
+    <a onclick="show('otocast')">Otocast App</a>
     <a onclick="show('vendors')">Vendors</a>
     <a onclick="show('sponsors')">Sponsors</a>
   </div>
